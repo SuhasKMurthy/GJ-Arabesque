@@ -1,0 +1,17 @@
+aws s3 sync s3://qfrag-gj ./
+
+mkdir data
+mkdir ./data/queries
+aws s3 cp s3://qfrag/graphs/citeseer.unsafe.graph ./data
+aws s3 cp --recursive s3://qfrag/queries ./data/queries
+
+hdfs dfs -mkdir /input
+hdfs dfs -mkdir /input/queries
+
+hadoop fs -put ./data/queries /input/
+hdfs dfs -put ./data/citeseer.unsafe.graph /input/
+
+IP="$(hostname --ip-address)"
+x='s/localhost/'"$IP"'/g'
+sed -i $x search-configs.yaml
+sh run_qfrag.sh search-configs.yaml

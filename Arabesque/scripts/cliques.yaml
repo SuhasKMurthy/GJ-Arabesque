@@ -1,0 +1,17 @@
+computation: io.arabesque.gmlib.clique.CliqueComputation
+input_graph_path: citeseer-single-label.graph
+output_path: Cliques_Output
+
+optimizations:
+  - io.arabesque.optimization.CliqueOptimization
+
+# Custom parameters
+arabesque.clique.maxsize: 4
+
+# reports params
+#reports_active: yes
+#reports_path: Reports_Path
+
+#flush_method: flush_by_pattern
+#flush_method: flush_by_entries
+#flush_method: flush_by_parts

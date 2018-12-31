@@ -1,0 +1,22 @@
+#! /usr/bin/env sh
+
+echo -n "Upload jar file (y/n)? "
+read answer
+
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    aws s3 cp /home/suhas/masters/ind_study/code/Arabesque/target/arabesque-1.0.1-SPARK-jar-with-dependencies.jar s3://qfrag-gj/
+fi
+
+echo -n "Upload run qfrag file (y/n)? "
+read answer
+
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    aws s3 cp /home/suhas/masters/ind_study/code/aws/run_qfrag.sh s3://qfrag-gj/
+fi
+
+echo -n "Upload spark master file (y/n)? "
+read answer
+
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    aws s3 cp /home/suhas/masters/ind_study/code/aws/spark_master s3://qfrag-gj/
+fi

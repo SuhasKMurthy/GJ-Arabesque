@@ -1,0 +1,6 @@
+spark_master: local[*]
+worker_memory: 10g
+driver_memory: 8g
+num_workers: 2
+num_compute_threads: 8
+max_result_size: 5g

@@ -1,0 +1,16 @@
+Set Up an SSH Tunnel to the Master Node Using Dynamic Port Forwarding
+---------------------------------------------------------------------
+ssh -i ~/mykeypair.pem -N -D 8157 hadoop@ec2-###-##-##-###.compute-1.amazonaws.com
+
+SSH to master node
+------------------
+ssh -i qfrag-sk.pem hadoop@ec2-3-16-128-3.us-east-2.compute.amazonaws.com
+
+mosh -ssh="ssh -i qfrag-sk.pem" hadoop@ec2-13-58-53-208.us-east-2.compute.amazonaws.com
+
+List clusters
+-------------
+aws emr list-clusters
+
+
+aws emr socks --cluster-id j-3LKNWYN35XLX --key-pair-file qfrag-sk.key	
